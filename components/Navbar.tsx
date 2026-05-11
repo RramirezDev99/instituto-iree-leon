@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Heart } from "lucide-react";
+import Logo from "./Logo";
 
 const links = [
   { href: "#inicio", label: "Inicio" },
@@ -31,26 +32,13 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/85 backdrop-blur-xl shadow-sm border-b border-slate-200/60"
+          ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-brand-100"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
-            <span className="font-display font-extrabold text-white text-lg">
-              I
-            </span>
-            <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-accent-500 ring-2 ring-white" />
-          </div>
-          <div className="leading-tight">
-            <div className="font-display font-bold text-base sm:text-lg text-slate-900">
-              Instituto IREE
-            </div>
-            <div className="text-[10px] sm:text-xs text-slate-500 font-medium tracking-wider uppercase">
-              León, Guanajuato
-            </div>
-          </div>
+        <a href="#inicio" className="group">
+          <Logo variant="color" className="group-hover:scale-[1.02] transition-transform" />
         </a>
 
         <div className="hidden lg:flex items-center gap-1">
@@ -58,7 +46,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-full hover:bg-brand-50 transition-colors"
+              className="px-4 py-2 text-sm font-bold text-ink-900 hover:text-brand-600 rounded-full hover:bg-brand-50 transition-colors"
             >
               {l.label}
             </a>
@@ -68,17 +56,17 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <a
             href="#donar"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-accent-500 to-accent-600 text-white text-sm font-semibold rounded-full shadow-lg shadow-accent-500/30 hover:shadow-accent-500/50 hover:scale-105 transition-all"
+            className="group inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-display rounded-full shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 hover:scale-105 transition-all"
           >
             <Heart className="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" />
-            Donar
+            DONAR
           </a>
         </div>
 
         <button
           aria-label="Abrir menú"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden w-10 h-10 rounded-xl bg-white/70 backdrop-blur border border-slate-200 flex items-center justify-center"
+          className="lg:hidden w-10 h-10 rounded-xl bg-white/80 backdrop-blur border border-brand-200 flex items-center justify-center text-ink-900"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -91,7 +79,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-b border-slate-200"
+            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-b border-brand-100"
           >
             <div className="px-4 py-4 flex flex-col gap-1">
               {links.map((l) => (
@@ -99,7 +87,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="px-4 py-3 text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 rounded-xl"
+                  className="px-4 py-3 text-base font-bold text-ink-900 hover:bg-brand-50 hover:text-brand-600 rounded-xl"
                 >
                   {l.label}
                 </a>
@@ -107,10 +95,10 @@ export default function Navbar() {
               <a
                 href="#donar"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white font-semibold rounded-xl shadow-lg shadow-accent-500/30"
+                className="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-500 text-white font-display rounded-xl shadow-lg shadow-brand-500/30"
               >
                 <Heart className="w-4 h-4" fill="currentColor" />
-                Donar
+                DONAR
               </a>
             </div>
           </motion.div>

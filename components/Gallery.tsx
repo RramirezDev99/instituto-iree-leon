@@ -47,15 +47,15 @@ export default function Gallery() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-sm font-semibold mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500 text-white text-sm font-bold mb-5">
             <Camera className="w-4 h-4" />
-            Nuestra comunidad
+            NUESTRA COMUNIDAD
           </div>
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 leading-tight tracking-tight text-balance">
-            Momentos que llenan{" "}
-            <span className="gradient-text">de orgullo</span>
+          <h2 className="font-display text-4xl sm:text-5xl text-ink-900 leading-tight tracking-tight text-balance uppercase">
+            MOMENTOS QUE LLENAN{" "}
+            <span className="gradient-text">DE ORGULLO</span>
           </h2>
-          <p className="mt-5 text-lg text-slate-600">
+          <p className="mt-5 text-lg text-ink-700 font-medium">
             Sonrisas, logros y aprendizajes que ocurren cada día en el IREE.
           </p>
         </motion.div>
@@ -75,8 +75,8 @@ export default function Gallery() {
                 alt={img.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-brand-950/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
-                <span className="text-white font-medium">{img.alt}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
+                <span className="text-white font-display uppercase">{img.alt}</span>
               </div>
             </motion.div>
           ))}

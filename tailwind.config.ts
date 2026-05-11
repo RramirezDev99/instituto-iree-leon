@@ -8,35 +8,52 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Verde institucional — PANTONE 368 CVC
         brand: {
-          50: "#eef7ff",
-          100: "#d9ecff",
-          200: "#bcdeff",
-          300: "#8dc9ff",
-          400: "#56a9ff",
-          500: "#2e87ff",
-          600: "#1668f5",
-          700: "#1253db",
-          800: "#1545b0",
-          900: "#173e8a",
-          950: "#102656"
+          50: "#f3faea",
+          100: "#e4f5cf",
+          200: "#cbeaa3",
+          300: "#a8dc6f",
+          400: "#85ca42",
+          500: "#69be28", // PANTONE 368 CVC
+          600: "#519e1c",
+          700: "#3f7a18",
+          800: "#346118",
+          900: "#2c5118",
+          950: "#152d09"
         },
+        // Verde profundo / forest — para botones y acentos
         accent: {
-          50: "#fff7ed",
-          100: "#ffedd5",
-          200: "#fed7aa",
-          300: "#fdba74",
-          400: "#fb923c",
-          500: "#f97316",
-          600: "#ea580c",
-          700: "#c2410c",
-          800: "#9a3412",
-          900: "#7c2d12"
+          50: "#f0fdf4",
+          100: "#dcfce7",
+          200: "#bbf7d0",
+          300: "#86efac",
+          400: "#4ade80",
+          500: "#22c55e",
+          600: "#16a34a",
+          700: "#15803d",
+          800: "#166534",
+          900: "#14532d",
+          950: "#052e16"
+        },
+        ink: {
+          50: "#f6f7f6",
+          100: "#e3e5e3",
+          200: "#c6cbc6",
+          300: "#9fa89f",
+          400: "#586558",
+          500: "#384338",
+          600: "#2a322a",
+          700: "#1e241e",
+          800: "#131713",
+          900: "#0a0d0a",
+          950: "#000000"
         }
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-poppins)", "system-ui", "sans-serif"]
+        // Helvetica / Arial Black como solicita la marca
+        sans: ['"Helvetica Neue"', "Helvetica", "Arial", "sans-serif"],
+        display: ['"Arial Black"', '"Helvetica Neue"', "Helvetica", "Arial", "sans-serif"]
       },
       animation: {
         "fade-in-up": "fadeInUp 0.6s ease-out forwards",

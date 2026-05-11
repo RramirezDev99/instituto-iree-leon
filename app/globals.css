@@ -4,7 +4,8 @@
 
 :root {
   --background: 255 255 255;
-  --foreground: 15 23 42;
+  --foreground: 10 13 10; /* casi negro */
+  --brand: 105 190 40; /* PANTONE 368 CVC */
 }
 
 * {
@@ -19,7 +20,14 @@ html {
 body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.01em;
 }
 
 @layer utilities {
@@ -27,8 +35,9 @@ body {
     text-wrap: balance;
   }
 
+  /* Gradiente institucional verde + negro */
   .gradient-text {
-    background: linear-gradient(135deg, #1668f5 0%, #2e87ff 50%, #f97316 100%);
+    background: linear-gradient(135deg, #69be28 0%, #3f7a18 50%, #0a0d0a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -42,24 +51,24 @@ body {
   }
 
   .glass-dark {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(10, 13, 10, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .shadow-glow {
-    box-shadow: 0 0 40px rgba(46, 135, 255, 0.25);
+    box-shadow: 0 0 40px rgba(105, 190, 40, 0.35);
   }
 
-  .shadow-glow-accent {
-    box-shadow: 0 0 40px rgba(249, 115, 22, 0.25);
+  .shadow-glow-dark {
+    box-shadow: 0 0 40px rgba(20, 83, 45, 0.4);
   }
 }
 
 ::selection {
-  background-color: rgb(46 135 255 / 0.25);
-  color: rgb(16 38 86);
+  background-color: rgb(105 190 40 / 0.3);
+  color: rgb(10 13 10);
 }
 
 ::-webkit-scrollbar {
@@ -68,14 +77,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(241 245 249);
+  background: rgb(243 250 234);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(148 163 184);
+  background: rgb(105 190 40);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(100 116 139);
+  background: rgb(63 122 24);
 }

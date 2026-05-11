@@ -1,26 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Eye, Sparkles, Heart, Users, Building2 } from "lucide-react";
+import { Target, Eye, Sparkles, Heart, Building2 } from "lucide-react";
 
 const pillars = [
   {
     icon: Target,
-    title: "Misión",
+    title: "MISIÓN",
     text: "Rehabilitar y educar a personas con discapacidad intelectual, contribuyendo a su mejor adaptación social, familiar y laboral.",
-    color: "from-brand-500 to-brand-700"
+    tone: "bg-brand-500"
   },
   {
     icon: Eye,
-    title: "Visión",
+    title: "VISIÓN",
     text: "Ser un instituto referente en México por la calidad humana y profesional con la que atendemos a cada persona y a su familia.",
-    color: "from-accent-500 to-accent-700"
+    tone: "bg-brand-700"
   },
   {
     icon: Sparkles,
-    title: "Valores",
+    title: "VALORES",
     text: "Inclusión, respeto, dignidad, compromiso, vocación de servicio, transparencia y amor por nuestra comunidad.",
-    color: "from-emerald-500 to-emerald-700"
+    tone: "bg-ink-900"
   }
 ];
 
@@ -35,15 +35,15 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-sm font-semibold mb-5">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-bold mb-5">
               <Building2 className="w-4 h-4" />
-              Nuestra historia
+              NUESTRA HISTORIA
             </div>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 leading-tight tracking-tight text-balance">
-              Fundado en 1969 por{" "}
-              <span className="gradient-text">padres y madres</span> de familia
+            <h2 className="font-display text-4xl sm:text-5xl text-ink-900 leading-tight tracking-tight text-balance uppercase">
+              FUNDADO EN 1969 POR{" "}
+              <span className="gradient-text">PADRES Y MADRES</span> DE FAMILIA
             </h2>
-            <div className="mt-6 space-y-4 text-slate-600 text-lg leading-relaxed">
+            <div className="mt-6 space-y-4 text-ink-700 text-lg leading-relaxed font-medium">
               <p>
                 El Instituto de Rehabilitación y Educación Especial de León,
                 Guanajuato (IREE) nació el <strong>6 de febrero de 1969</strong>{" "}
@@ -60,23 +60,17 @@ export default function About() {
             </div>
 
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-md">
-              <div className="text-center p-4 rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-100">
-                <div className="text-3xl font-display font-extrabold text-brand-700">
-                  1969
-                </div>
-                <div className="text-xs text-slate-600 mt-1">Fundación</div>
+              <div className="text-center p-4 rounded-2xl bg-brand-50 border border-brand-200">
+                <div className="text-3xl font-display text-brand-700">1969</div>
+                <div className="text-xs text-ink-700 mt-1 font-bold">Fundación</div>
               </div>
-              <div className="text-center p-4 rounded-2xl bg-gradient-to-br from-accent-50 to-white border border-accent-100">
-                <div className="text-3xl font-display font-extrabold text-accent-600">
-                  55+
-                </div>
-                <div className="text-xs text-slate-600 mt-1">Años</div>
+              <div className="text-center p-4 rounded-2xl bg-brand-500 text-white">
+                <div className="text-3xl font-display">55+</div>
+                <div className="text-xs mt-1 font-bold opacity-90">Años</div>
               </div>
-              <div className="text-center p-4 rounded-2xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-100">
-                <div className="text-3xl font-display font-extrabold text-emerald-700">
-                  ONG
-                </div>
-                <div className="text-xs text-slate-600 mt-1">Sin fines de lucro</div>
+              <div className="text-center p-4 rounded-2xl bg-ink-900 text-white">
+                <div className="text-3xl font-display">ONG</div>
+                <div className="text-xs mt-1 font-bold opacity-90">Sin fines de lucro</div>
               </div>
             </div>
           </motion.div>
@@ -104,19 +98,19 @@ export default function About() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 p-6 shadow-xl text-white flex flex-col justify-center aspect-square">
+                <div className="rounded-3xl bg-brand-500 p-6 shadow-xl text-white flex flex-col justify-center aspect-square">
                   <Heart
-                    className="w-10 h-10 mb-3 text-accent-300"
+                    className="w-10 h-10 mb-3 text-white"
                     fill="currentColor"
                   />
-                  <p className="text-sm leading-relaxed">
-                    "Una Institución de corazón y sin fines de lucro"
+                  <p className="text-sm leading-relaxed font-bold">
+                    &ldquo;Una Institución de corazón y sin fines de lucro&rdquo;
                   </p>
                 </div>
               </div>
             </div>
-            <div className="absolute -z-10 -top-8 -right-8 w-40 h-40 rounded-full bg-accent-100" />
-            <div className="absolute -z-10 -bottom-8 -left-8 w-32 h-32 rounded-full bg-brand-100" />
+            <div className="absolute -z-10 -top-8 -right-8 w-40 h-40 rounded-full bg-brand-100" />
+            <div className="absolute -z-10 -bottom-8 -left-8 w-32 h-32 rounded-full bg-brand-200" />
           </motion.div>
         </div>
 
@@ -129,17 +123,17 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              className="group relative p-8 rounded-3xl bg-white border-2 border-ink-100 shadow-sm hover:shadow-2xl hover:-translate-y-1 hover:border-brand-300 transition-all duration-300"
             >
               <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center shadow-lg mb-5 group-hover:scale-110 transition-transform`}
+                className={`w-14 h-14 rounded-2xl ${p.tone} flex items-center justify-center shadow-lg mb-5 group-hover:scale-110 transition-transform`}
               >
                 <p.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="font-display font-bold text-2xl text-slate-900 mb-3">
+              <h3 className="font-display text-2xl text-ink-900 mb-3 uppercase">
                 {p.title}
               </h3>
-              <p className="text-slate-600 leading-relaxed">{p.text}</p>
+              <p className="text-ink-700 leading-relaxed font-medium">{p.text}</p>
             </motion.div>
           ))}
         </div>
