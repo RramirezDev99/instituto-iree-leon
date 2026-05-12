@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Heart, Sparkles, Phone, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -116,53 +117,86 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Visual / Stats card */}
+          {/* Logo grande como protagonista visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative"
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative flex items-center justify-center"
           >
-            <div className="relative aspect-[5/6] sm:aspect-[4/5] max-w-md mx-auto">
-              {/* Main image */}
-              <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1597392582469-a697322d5c16?auto=format&fit=crop&w=900&q=80"
-                  alt="Personas sonriendo en actividad inclusiva"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-transparent" />
-              </div>
+            <div className="relative w-full max-w-md aspect-square">
+              {/* Anillos decorativos animados */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border-2 border-dashed border-brand-300/60"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-8 rounded-full border-2 border-dashed border-brand-400/40"
+              />
 
-              {/* Floating card 1 */}
+              {/* Pulso radial */}
+              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-brand-100 via-white to-brand-50 shadow-2xl shadow-brand-500/20" />
+
+              {/* Logo con flotación */}
               <motion.div
                 animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-4 sm:-left-10 top-12 glass rounded-2xl p-4 shadow-xl"
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative w-full h-full flex items-center justify-center p-16 sm:p-20"
+              >
+                <Image
+                  src="/logo-iree.png"
+                  alt="Instituto IREE León"
+                  width={600}
+                  height={500}
+                  priority
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Tarjetas flotantes */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute -left-2 sm:-left-4 top-4 glass rounded-2xl p-4 shadow-xl"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-white" fill="currentColor" />
+                    <Heart
+                      className="w-5 h-5 text-white"
+                      fill="currentColor"
+                    />
                   </div>
                   <div>
                     <div className="text-2xl font-display text-ink-900">
                       55+
                     </div>
-                    <div className="text-xs text-ink-700 font-bold">Años de servicio</div>
+                    <div className="text-xs text-ink-700 font-bold">
+                      Años de servicio
+                    </div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Floating card 2 */}
               <motion.div
-                animate={{ y: [0, 12, 0] }}
+                animate={{ y: [0, 10, 0] }}
                 transition={{
-                  duration: 5,
+                  duration: 4.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: 1
                 }}
-                className="absolute -right-4 sm:-right-10 bottom-16 glass rounded-2xl p-4 shadow-xl"
+                className="absolute -right-2 sm:-right-4 bottom-8 glass rounded-2xl p-4 shadow-xl"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-ink-900 flex items-center justify-center">
@@ -172,14 +206,12 @@ export default function Hero() {
                     <div className="text-2xl font-display text-ink-900">
                       Sin fines
                     </div>
-                    <div className="text-xs text-ink-700 font-bold">de lucro · ONG</div>
+                    <div className="text-xs text-ink-700 font-bold">
+                      de lucro · ONG
+                    </div>
                   </div>
                 </div>
               </motion.div>
-
-              {/* Decorative rings */}
-              <div className="absolute -z-10 -bottom-8 -right-8 w-48 h-48 rounded-full border-8 border-brand-200/60" />
-              <div className="absolute -z-10 -top-8 -left-8 w-32 h-32 rounded-full border-8 border-brand-300/60" />
             </div>
           </motion.div>
         </div>

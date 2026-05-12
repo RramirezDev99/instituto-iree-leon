@@ -1,62 +1,64 @@
 "use client";
 
+import Image from "next/image";
+
 /**
- * Logo placeholder oficial del Instituto IREE.
+ * Logo oficial del Instituto IREE León (2017).
  * Variantes:
- *  - "color"   → letras verdes sobre fondo blanco
- *  - "white"   → letras blancas sobre fondo verde
- *  - "compact" → pastilla cuadrada con la "I" (para favicons o navbar móvil)
+ *  - "color"   → trébol verde sobre fondo blanco/transparente
+ *  - "white"   → trébol blanco sobre fondo verde/oscuro
+ *  - "isotipo" → solo el ícono (sin texto)
  */
 export default function Logo({
   variant = "color",
-  className = ""
+  className = "",
+  size = 48
 }: {
-  variant?: "color" | "white" | "compact";
+  variant?: "color" | "white" | "isotipo";
   className?: string;
+  size?: number;
 }) {
-  if (variant === "compact") {
+  const src =
+    variant === "white" ? "/logo-iree-white.png" : "/logo-iree.png";
+
+  if (variant === "isotipo") {
     return (
-      <div
-        className={`relative w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/30 ${className}`}
-      >
-        <span className="font-display text-white text-lg leading-none">I</span>
-        <div className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-ink-900 ring-2 ring-white" />
-      </div>
+      <Image
+        src={src}
+        alt="Instituto IREE León"
+        width={size}
+        height={size}
+        priority
+        className={className}
+      />
     );
   }
 
   const isWhite = variant === "white";
-  const textColor = isWhite ? "text-white" : "text-brand-600";
-  const subColor = isWhite ? "text-white/80" : "text-ink-700";
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <div
-        className={`relative w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${
-          isWhite
-            ? "bg-white"
-            : "bg-gradient-to-br from-brand-500 to-brand-700 shadow-brand-500/30"
-        }`}
-      >
-        <span
-          className={`font-display text-xl leading-none ${
-            isWhite ? "text-brand-600" : "text-white"
+      <Image
+        src={src}
+        alt="Instituto IREE León"
+        width={size}
+        height={size}
+        priority
+        className="object-contain drop-shadow-sm"
+        style={{ height: size, width: "auto" }}
+      />
+      <div className="leading-tight">
+        <div
+          className={`font-display text-base sm:text-lg uppercase tracking-tight ${
+            isWhite ? "text-white" : "text-brand-600"
           }`}
         >
-          I
-        </span>
-        <div
-          className={`absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full ring-2 ring-white ${
-            isWhite ? "bg-brand-500" : "bg-ink-900"
-          }`}
-        />
-      </div>
-      <div className="leading-tight">
-        <div className={`font-display text-base sm:text-lg ${textColor}`}>
-          INSTITUTO IREE
+          Instituto IREE
         </div>
         <div
-          className={`text-[10px] sm:text-xs tracking-[0.2em] uppercase ${subColor}`}
+          className={`text-[10px] sm:text-xs tracking-[0.2em] uppercase ${
+            isWhite ? "text-white/80" : "text-ink-700"
+          }`}
         >
           León · Guanajuato
         </div>
