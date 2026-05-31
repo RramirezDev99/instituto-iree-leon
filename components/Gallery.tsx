@@ -1,42 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera } from "lucide-react";
-
-const images = [
-  {
-    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
-    alt: "Estudiantes en taller",
-    span: "md:col-span-2 md:row-span-2"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80",
-    alt: "Aprendizaje"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=80",
-    alt: "Lectura"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=700&q=80",
-    alt: "Trabajo en equipo"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=700&q=80",
-    alt: "Creatividad",
-    span: "md:col-span-2"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1607582544638-72b4e0acdf4e?auto=format&fit=crop&w=700&q=80",
-    alt: "Inclusión"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=700&q=80",
-    alt: "Música"
-  }
-];
+import { Camera, ImagePlus } from "lucide-react";
+import { photos } from "@/data/site";
 
 export default function Gallery() {
+  const anyPlaceholder = photos.gallery.some((p) => p.isPlaceholder);
+
   return (
     <section id="galeria" className="relative py-24 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,10 +28,23 @@ export default function Gallery() {
           <p className="mt-5 text-lg text-ink-700 font-medium">
             Sonrisas, logros y aprendizajes que ocurren cada día en el IREE.
           </p>
+
+          {anyPlaceholder && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold"
+            >
+              <ImagePlus className="w-3.5 h-3.5" />
+              Galería en preparación · fotos oficiales próximamente
+            </motion.div>
+          )}
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[220px] gap-4">
-          {images.map((img, i) => (
+          {photos.gallery.map((img, i) => (
             <motion.div
               key={img.src}
               initial={{ opacity: 0, scale: 0.9 }}

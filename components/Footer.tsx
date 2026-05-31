@@ -1,26 +1,36 @@
 "use client";
 
+import Link from "next/link";
 import { Heart, Facebook, Youtube, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
+import { site, waLink, telLink, mailLink } from "@/data/site";
 
 const sections = [
   {
     title: "NAVEGACIÓN",
     links: [
-      { label: "Inicio", href: "#inicio" },
-      { label: "Nosotros", href: "#nosotros" },
-      { label: "Servicios", href: "#servicios" },
-      { label: "Impacto", href: "#impacto" },
-      { label: "Galería", href: "#galeria" }
+      { label: "Inicio", href: "/#inicio" },
+      { label: "Nosotros", href: "/#nosotros" },
+      { label: "Servicios", href: "/#servicios" },
+      { label: "Impacto", href: "/#impacto" },
+      { label: "Galería", href: "/#galeria" }
     ]
   },
   {
     title: "APOYA",
     links: [
-      { label: "Donar", href: "#donar" },
-      { label: "Voluntariado", href: "#donar" },
-      { label: "Empresas aliadas", href: "#donar" },
-      { label: "Contacto", href: "#contacto" }
+      { label: "Donar", href: "/#donar" },
+      { label: "Voluntariado", href: "/#donar" },
+      { label: "Empresas aliadas", href: "/#donar" },
+      { label: "Contacto", href: "/#contacto" }
+    ]
+  },
+  {
+    title: "INSTITUCIONAL",
+    links: [
+      { label: "Aviso de Privacidad", href: "/aviso-de-privacidad" },
+      { label: "Misión y visión", href: "/#nosotros" },
+      { label: "Historia", href: "/#nosotros" }
     ]
   }
 ];
@@ -30,17 +40,17 @@ export default function Footer() {
     <footer className="relative bg-ink-950 text-ink-100 pt-20 pb-10 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-4 gap-10">
+        <div className="grid lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Logo variant="white" className="mb-5" />
             <p className="max-w-md text-sm leading-relaxed text-ink-200 font-medium">
-              Desde 1969, rehabilitamos y educamos a personas con discapacidad
-              intelectual. Una institución de corazón y sin fines de lucro.
+              Desde {site.foundedYear}, rehabilitamos y educamos a personas con
+              discapacidad intelectual. {site.tagline}.
             </p>
             <div className="mt-6 flex gap-3">
               <a
-                href="https://www.facebook.com/"
+                href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -49,7 +59,7 @@ export default function Footer() {
                 <Facebook className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://www.youtube.com/"
+                href={site.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
@@ -58,7 +68,7 @@ export default function Footer() {
                 <Youtube className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://wa.me/524772566524"
+                href={waLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -75,12 +85,12 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {s.links.map((l) => (
                   <li key={l.label}>
-                    <a
+                    <Link
                       href={l.href}
                       className="text-sm text-ink-200 hover:text-brand-400 transition-colors font-medium"
                     >
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -91,42 +101,53 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10 grid md:grid-cols-2 lg:grid-cols-4 gap-5 text-sm text-ink-200 font-medium">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-brand-400" />
-            <span>Donizetti s/n, Col. León Moderno, León, Gto.</span>
+            <span>
+              {site.contact.address.street}, {site.contact.address.neighborhood},{" "}
+              {site.contact.address.city}
+            </span>
           </div>
           <a
-            href="tel:+524777123244"
+            href={telLink}
             className="flex items-center gap-3 hover:text-white transition-colors"
           >
             <Phone className="w-4 h-4 shrink-0 text-brand-400" />
-            <span>477 712 32 44</span>
+            <span>{site.contact.phone}</span>
           </a>
           <a
-            href="https://wa.me/524772566524"
+            href={waLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 hover:text-white transition-colors"
           >
             <MessageCircle className="w-4 h-4 shrink-0 text-brand-400" />
-            <span>WhatsApp 477 256 65 24</span>
+            <span>WhatsApp {site.contact.whatsapp}</span>
           </a>
           <a
-            href="mailto:ireeleon@gmail.com"
+            href={mailLink}
             className="flex items-center gap-3 hover:text-white transition-colors break-all"
           >
             <Mail className="w-4 h-4 shrink-0 text-brand-400" />
-            <span>ireeleon@gmail.com</span>
+            <span>{site.contact.email}</span>
           </a>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-ink-300 font-medium">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-ink-300 font-medium text-center sm:text-left">
           <div>
-            © {new Date().getFullYear()} Instituto IREE León. Todos los derechos
+            © {new Date().getFullYear()} {site.legalName}. Todos los derechos
             reservados.
           </div>
-          <div className="flex items-center gap-1.5">
-            Hecho con
-            <Heart className="w-3.5 h-3.5 text-brand-400" fill="currentColor" />
-            para nuestra comunidad
+          <div className="flex items-center gap-4">
+            <Link
+              href="/aviso-de-privacidad"
+              className="hover:text-white transition-colors underline-offset-4 hover:underline"
+            >
+              Aviso de Privacidad
+            </Link>
+            <span className="flex items-center gap-1.5">
+              Hecho con
+              <Heart className="w-3.5 h-3.5 text-brand-400" fill="currentColor" />
+              para nuestra comunidad
+            </span>
           </div>
         </div>
       </div>
