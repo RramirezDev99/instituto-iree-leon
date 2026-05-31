@@ -85,16 +85,16 @@ export default function About() {
             <div className="relative grid grid-cols-2 gap-4">
               <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"
-                  alt="Educación inclusiva"
+                  src="/photos/iree-19.jpg"
+                  alt="Estudiante del IREE en clase de computación"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="space-y-4 pt-12">
                 <div className="rounded-3xl overflow-hidden aspect-square shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
-                    alt="Aprendizaje"
+                    src="/photos/iree-22.jpg"
+                    alt="Capacitación laboral en jardinería"
                     className="w-full h-full object-cover"
                   />
                 </div>

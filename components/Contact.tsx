@@ -36,8 +36,8 @@ const info = [
   {
     icon: Mail,
     label: "CORREO",
-    value: "ireeleon@gmail.com",
-    href: "mailto:ireeleon@gmail.com"
+    value: "i.r.e.e_ac@hotmail.com",
+    href: "mailto:i.r.e.e_ac@hotmail.com"
   },
   {
     icon: Clock,
